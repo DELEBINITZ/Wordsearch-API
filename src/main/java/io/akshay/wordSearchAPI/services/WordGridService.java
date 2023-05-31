@@ -43,7 +43,8 @@ public class WordGridService {
 				return false;
 
 			for (int i = 0; i < word.length(); i++) {
-				if (contents[x][y + i] != '_') {
+				char letter = contents[x][y + i];
+				if (letter != '_' && letter != word.charAt(i)) {
 					return false;
 				}
 			}
@@ -55,7 +56,8 @@ public class WordGridService {
 				return false;
 
 			for (int i = 0; i < word.length(); i++) {
-				if (contents[x + i][y] != '_') {
+				char letter = contents[x + i][y];
+				if (letter != '_' && letter != word.charAt(i)) {
 					return false;
 				}
 			}
@@ -66,7 +68,8 @@ public class WordGridService {
 				return false;
 
 			for (int i = 0; i < word.length(); i++) {
-				if (contents[x + i][y + i] != '_') {
+				char letter = contents[x + i][y + i];
+				if (letter != '_' && letter != word.charAt(i)) {
 					return false;
 				}
 			}
@@ -77,7 +80,8 @@ public class WordGridService {
 				return false;
 
 			for (int i = 0; i < word.length(); i++) {
-				if (contents[x][y - i] != '_') {
+				char letter = contents[x][y - i];
+				if (letter != '_' && letter != word.charAt(i)) {
 					return false;
 				}
 			}
@@ -89,7 +93,8 @@ public class WordGridService {
 				return false;
 
 			for (int i = 0; i < word.length(); i++) {
-				if (contents[x - i][y] != '_') {
+				char letter = contents[x - i][y];
+				if (letter != '_' && letter != word.charAt(i)) {
 					return false;
 				}
 			}
@@ -100,7 +105,8 @@ public class WordGridService {
 				return false;
 
 			for (int i = 0; i < word.length(); i++) {
-				if (contents[x - i][y - i] != '_') {
+				char letter = contents[x - i][y - i];
+				if (letter != '_' && letter != word.charAt(i)) {
 					return false;
 				}
 			}
@@ -136,9 +142,10 @@ public class WordGridService {
 				contents[i][j] = '_';
 			}
 		}
-		Collections.shuffle(coordinates);
 
 		for (String word : words) {
+			Collections.shuffle(coordinates);
+
 			for (Coordinate coordinate : coordinates) {
 				int x = coordinate.x;
 				int y = coordinate.y;
